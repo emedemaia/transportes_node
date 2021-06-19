@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transportes X</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/transportes.css">
+   </head>
+  <body>
+    <header>
+      <div class="holder">
+        <img src="images/logo.png" width="100" alt="Transportes X">
+        <h1>Transportes X</h1>
+      </div>
+    </header>
+    <nav>
+      <div class="holder">
+        <ul>
+          <li><a class="{{#if isHome}} activo {{/if}}" href="/">Home</a></li>  
+          {{!-- index va solo barra porque ya interpreta que es el que tiene que levantar --}}
+          <li><a class="{{#if isNosotros}} activo {{/if}}" href="/nosotros">Nosotros</a></li>
+          <li><a class="{{#if isServicios}} activo {{/if}}" href="/servicios">Servicios</a></li>
+          <li><a class="{{#if isGaleria}} activo {{/if}}" href="/galeria">Galeria</a></li>
+          <li><a class="{{#if isNovedades}} activo {{/if}}" href="/novedades">Novedades</a></li>
+          <li><a class="{{#if isContacto}} activo {{/if}}" href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+    {{{body}}}
+
+    <footer>
+      <p>Diseñado por Maia Elías - &copy;2021</p>
+    </footer>
+    
+  </body>
+</html>

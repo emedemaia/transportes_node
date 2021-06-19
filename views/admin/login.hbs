@@ -1,0 +1,24 @@
+<div class="container login">
+    <div id="row">
+        <form action="/admin/login" method="post">
+            <div class="mb-3 row">
+                <label for="inputUser" class="col-sm-2  col-form-label">Usuario</label>
+                <div class="col-sm-10 col-lg-4 col-xl-5">
+                    <input type="text" class="form-control" id="inputUser" name="usuario">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10 col-lg-4 col-xl-5">
+                    <input type="password" class="form-control" id="inputPassword" name="password">
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            {{#if error}}
+            <!-- este error viene desde login -->
+            <p>El usuario y/o contraseña es incorrecta</p>
+            {{/if}}
+        </form>
+    </div>
+</div>
