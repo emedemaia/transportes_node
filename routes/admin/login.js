@@ -3,11 +3,22 @@ var router = express.Router();
 var usuariosModel = require('./../../models/usuariosModel')
 
 /* GET home page */
+//me hace ingresar
 router.get('/', function (req, res, next) {
     res.render('admin/login', {
         layout: 'admin/layout' //busca el layout en admin
     });
 });
+
+
+//me hace logout y volver a la página de login
+router.get('/logout', function(req, res, next){
+    req.session.destroy();//destruye las variables de sesión definidas en fila 31 y 32
+    res.render('admin/login',{
+        layout: 'admin/layout'
+    });
+});
+
 
 router.post('/', async (req, res, next) => {
     try {
