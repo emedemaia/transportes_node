@@ -22,7 +22,13 @@
         <a href="/admin/novedades">Descendente</a>
     </div>
 
+<div class="col-3">
+<form action="/admin/novedades" class="d-flex" method="get">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="search" name="q" {{#if q}} value="{{q}}" {{/if}}>
+    <button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
 
+</div>
     {{!-- fila 3 --}}
     <div class="row">
         <div class="col">
@@ -53,6 +59,11 @@
                     {{/each}}
                 </tbody>
             </table>
+            {{#if is_search}}
+            {{#unless novedades.length}}
+            No se encontraron resultados para "<b>{{q}}</b>""
+            {{/unless}}
+            {{/if}}
         </div>
     </div>
 

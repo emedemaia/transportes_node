@@ -2,7 +2,13 @@
 
 
     <h2>Novedades</h2>
+<div class="col-3">
+<form action="novedades" class="d-flex" method="get">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="search" name="q" {{#if q}} value="{{q}}" {{/if}}>
+    <button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
 
+</div>
     {{#each novedades}}
     <div class="novedades" value="{{id}}">
         <h3>{{titulo}}</h3>
@@ -11,5 +17,11 @@
         <hr />
     </div>
     {{/each}}
+
+     {{#if is_search}}
+            {{#unless novedades.length}}
+            No se encontraron resultados para "<b>{{q}}</b>""
+            {{/unless}}
+            {{/if}}
 
 </main>

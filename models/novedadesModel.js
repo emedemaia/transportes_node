@@ -52,4 +52,12 @@ return rows;
 }
 
 
-module.exports = { getNovedades,  getNovedadesAsc, insertNovedades, deleteNovedadById, getNovedadById, modificarNovedadById  };
+//para buscar
+
+async function buscarNovedades(busqueda){
+    var query = 'select * from novedades where titulo LIKE ? OR subtitulo LIKE ? OR cuerpo LIKE ?';
+    var rows = await pool.query(query, ['%' + busqueda + '%', '%' + busqueda + '%', '%' + busqueda + '%']);
+    return rows;
+}
+
+module.exports = { getNovedades,  getNovedadesAsc, insertNovedades, deleteNovedadById, getNovedadById, modificarNovedadById, buscarNovedades };

@@ -5,13 +5,29 @@ var novedadesModel = require('../../models/novedadesModel');
 
 /* GET home page */
 
-//si necesito un buscador, para listar las novedades puedo usar esto
+// para listar las novedades o buscar las novedades
 router.get('/', async function (req, res, next) {
+
+    var novedades
+    console.log(req.query.q);
+    if(req.query.q === undefined){
+        novedades = await novedadesModel.getNovedades();
+    }else{
+        novedades = await novedadesModel.buscarNovedades(req.query.q);
+    }
+
+
+    /* esta variable era solo para listar las novedades, como agregué un buscador, tengo que ampliar la variable con if, y es lo que agregué arriba.
     var novedades = await novedadesModel.getNovedades();
+    */
+
     res.render('admin/novedades', { //quiero q me renderice la página novedades, el layout del admin, el nombre de usuario del login y la variable novedades
         layout: 'admin/layout',
         usuario: req.session.nombre,
-        novedades
+        novedades,
+        //sin esto de abajo, ya realiza la búsqueda
+        is_search: req.query.q !== undefined, //si no encuentra nada podemos poner que diga un mensaje
+        q:req.query.q //habilito para que sea un mensaje
     });
 });
 
