@@ -16,11 +16,12 @@
                 </div>
             </div>
 
-               <div class="mb-3 row">
+               <div class="mb-3 row" >
                 <div class="col-sm-10 col-lg-4 col-xl-5">
                     <textarea class="form-control"  name="cuerpo" placeholder="Cuerpo" rows="5"></textarea>
                 </div>
             </div>
+            
 {{#if error}}
 <p style="color:red;">
     {{message}}
@@ -32,3 +33,7 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#textarea-form").YellowText();
+</script>

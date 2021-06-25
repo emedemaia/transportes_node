@@ -2,7 +2,7 @@
 
 
     <h2>Novedades</h2>
-<div class="col-3">
+<div class="col-3" style="float:right;">
 <form action="novedades" class="d-flex" method="get">
     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="search" name="q" {{#if q}} value="{{q}}" {{/if}}>
     <button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -13,7 +13,7 @@
     <div class="novedades" value="{{id}}">
         <h3>{{titulo}}</h3>
         <h4>{{subtitulo}}</h4>
-        <p>{{cuerpo}}</p>
+        <p>{{{cuerpo}}}</p>
         <hr />
     </div>
     {{/each}}
